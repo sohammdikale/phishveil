@@ -1,4 +1,3 @@
-````markdown
 # 🛡️ Phishveil
 
 ### Think before you click.
@@ -56,7 +55,6 @@ Phishveil follows a feature-based machine learning pipeline:
                     │
                     ▼
              🛡️ Phishveil Result
-````
 
 ---
 

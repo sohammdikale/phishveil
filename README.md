@@ -57,7 +57,7 @@ Phishveil follows a feature-based machine learning pipeline:
                     ▼
              🛡️ Phishveil Result
 
-
+''''
 ---
 
 ## 🔎 Detection Indicators

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — phishveil</title>
+<meta name="description" content="Phishveil analyzes website URLs using machine-learning-based security indicators to help identify potentially suspicious or phishing websites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/">phishveil</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about" aria-current="page">About</a>
+      <a href="/#scanner">Scan</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMobile" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="navMobile">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/#scanner">Scan</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="about-hero">
+    <div class="about-hero__inner">
+      <p class="eyebrow">About</p>
+      <h1 class="about-hero__heading">About Phishveil</h1>
+      <p class="about-hero__sub">Phishveil analyzes website URLs using machine-learning-based security indicators to help identify potentially suspicious or phishing websites.</p>
+    </div>
+  </section>
+
+  <section class="process" aria-label="How it works">
+    <div class="process__inner">
+      <h2 class="section-title">How it works</h2>
+      <ol class="process__steps">
+        <li class="process__step">
+          <span class="process__number">01</span>
+          <span class="process__label">URL</span>
+          <p class="process__desc">You submit a website address for analysis.</p>
+        </li>
+        <li class="process__step">
+          <span class="process__number">02</span>
+          <span class="process__label">Feature extraction</span>
+          <p class="process__desc">The backend derives {{ feature_count }} structural, lexical, and page-level signals from the URL and, where reachable, the page it points to.</p>
+        </li>
+        <li class="process__step">
+          <span class="process__number">03</span>
+          <span class="process__label">Model analysis</span>
+          <p class="process__desc">A trained {{ model_name }} model scores those signals to estimate the likelihood of phishing.</p>
+        </li>
+        <li class="process__step">
+          <span class="process__number">04</span>
+          <span class="process__label">Risk assessment</span>
+          <p class="process__desc">Phishveil translates the model's output into a probability, a confidence score, and a plain-language risk status.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="tech" aria-label="Technology">
+    <div class="tech__inner">
+      <h2 class="section-title">Technology</h2>
+      <ul class="tech__list">
+        <li>Python</li>
+        <li>Flask</li>
+        <li>{{ model_name }}</li>
+        <li>BeautifulSoup</li>
+        <li>Requests</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about-note" aria-label="Limitations">
+    <div class="about-note__inner">
+      <h2 class="section-title">What Phishveil doesn't do</h2>
+      <p>Phishveil is an academic machine-learning project. It offers a probability-based assessment, not a guarantee. It does not block websites, verify identities, or replace browser and email security tools. Always exercise independent judgment before entering credentials or payment details on any website.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__brand">phishveil</p>
+    <p class="footer__tagline">Phishing Website Detection</p>
+    <p class="footer__meta">Academic project · ML-based analysis</p>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="/">Home</a>
+      <span aria-hidden="true">·</span>
+      <a href="/about">About</a>
+      <span aria-hidden="true">·</span>
+      <a href="/#scanner">Scan</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

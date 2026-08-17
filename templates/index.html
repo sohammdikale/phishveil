@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>phishveil — See the threat before you trust the link.</title>
+<meta name="description" content="Analyze a website URL and uncover signals associated with phishing and suspicious activity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/">phishveil</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="#scanner">Scan</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMobile" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="navMobile">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="#scanner">Scan</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">Phishing website detection</p>
+      <h1 class="hero__heading">See the threat before you trust the link.</h1>
+      <p class="hero__sub">Analyze a website URL and uncover signals associated with phishing and suspicious activity.</p>
+    </div>
+  </section>
+
+  <section class="scanner" id="scanner" aria-label="URL scanner">
+    <div class="scanner__inner">
+      <form id="scanForm" class="scan-form" novalidate>
+        <label for="urlInput" class="visually-hidden">Website URL</label>
+        <div class="scan-form__field">
+          <input
+            type="text"
+            id="urlInput"
+            name="url"
+            inputmode="url"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            placeholder="Enter a website URL"
+            aria-describedby="urlHint"
+          >
+          <button type="submit" id="scanButton" class="scan-form__button">
+            <span class="scan-form__button-label">Scan</span>
+            <span class="scan-form__button-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+        <p id="urlHint" class="scan-form__hint">Example: https://example.com</p>
+      </form>
+
+      <div id="errorBox" class="error-box" role="alert" hidden></div>
+
+      <div id="loadingBox" class="loading-box" hidden aria-live="polite">
+        <span class="loading-box__dot" aria-hidden="true"></span>
+        <span id="loadingText" class="loading-box__text">Analyzing URL…</span>
+      </div>
+
+      <div id="resultSection" class="result" hidden aria-live="polite">
+
+        <div class="result__status">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusLabel" class="status-label">SAFE</span>
+        </div>
+
+        <h2 id="resultHeadline" class="result__headline">Likely legitimate</h2>
+
+        <div class="result__grid">
+
+          <div class="probability" aria-label="Phishing probability">
+            <svg class="probability__ring" viewBox="0 0 140 140" width="140" height="140">
+              <circle class="probability__track" cx="70" cy="70" r="60"></circle>
+              <circle id="probabilityArc" class="probability__arc" cx="70" cy="70" r="60"></circle>
+            </svg>
+            <div class="probability__value-wrap">
+              <span id="probabilityValue" class="probability__value">0%</span>
+              <span class="probability__label">Phishing probability</span>
+            </div>
+          </div>
+
+          <div class="confidence">
+            <div class="confidence__row">
+              <span class="confidence__label">Model confidence</span>
+              <span id="confidenceValue" class="confidence__value">0%</span>
+            </div>
+            <div class="confidence__bar">
+              <div id="confidenceFill" class="confidence__fill"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="analyzed-url">
+          <span class="analyzed-url__label">Analyzed URL</span>
+          <span id="analyzedUrlValue" class="analyzed-url__value"></span>
+        </div>
+
+        <div class="panel">
+          <h3 class="panel__title">Analysis</h3>
+          <dl id="detailsGrid" class="details-grid"></dl>
+          <ul id="warningsList" class="warnings-list"></ul>
+        </div>
+
+        <div class="panel">
+          <h3 class="panel__title">Detection signals</h3>
+          <ul id="reasonsList" class="reasons-list"></ul>
+        </div>
+
+        <div id="disclaimerBox" class="disclaimer" role="note">
+          <span class="disclaimer__label">Note</span>
+          <p id="disclaimerText" class="disclaimer__text"></p>
+        </div>
+
+        <button type="button" id="resetButton" class="reset-button">Scan another URL</button>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__brand">phishveil</p>
+    <p class="footer__tagline">Phishing Website Detection</p>
+    <p class="footer__meta">Academic project · ML-based analysis</p>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="/">Home</a>
+      <span aria-hidden="true">·</span>
+      <a href="/about">About</a>
+      <span aria-hidden="true">·</span>
+      <a href="#scanner">Scan</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

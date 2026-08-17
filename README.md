@@ -1,4 +1,4 @@
-markdown
+````text
 # 🛡️ Phishveil
 
 ### Think before you click.
@@ -56,8 +56,12 @@ Phishveil follows a feature-based machine learning pipeline:
                     │
                     ▼
              🛡️ Phishveil Result
+````
 
-''''
+When a user submits a URL, Phishveil extracts relevant characteristics from the URL and, when available, the webpage.
+
+These features are passed to the trained machine learning model, which generates the prediction and probability used by the application.
+
 ---
 
 ## 🔎 Detection Indicators
@@ -84,15 +88,11 @@ Phishveil uses a **LightGBM Classifier** for phishing website classification.
 
 The trained model is stored in:
 
-```text
-phishing_model.pkl
-```
+`phishing_model.pkl`
 
 The corresponding model feature-column information is stored in:
 
-```text
-model_columns.pkl
-```
+`model_columns.pkl`
 
 The backend verifies that the feature extractor's feature order matches the feature order expected by the trained model.
 
@@ -259,7 +259,7 @@ Phishveil provides a Flask API endpoint for URL scanning.
 }
 ```
 
-> The actual values depend on the URL being analyzed and the trained model's prediction.
+The actual values depend on the URL being analyzed and the trained model's prediction.
 
 ---
 
@@ -428,14 +428,14 @@ Phishveil was developed as an **academic and portfolio project** to explore the 
 
 ## 👨‍💻 Author
 
-### **Soham Dikale**
+### Soham Dikale
 
 🎓 B.Tech — Artificial Intelligence & Data Science
 
-🔗 **GitHub:**
+🔗 GitHub:
 [https://github.com/sohammdikale](https://github.com/sohammdikale)
 
-🔗 **Project Repository:**
+🔗 Project Repository:
 [https://github.com/sohammdikale/phishveil](https://github.com/sohammdikale/phishveil)
 
 ---
